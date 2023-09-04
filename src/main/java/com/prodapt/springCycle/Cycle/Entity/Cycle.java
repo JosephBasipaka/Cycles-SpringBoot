@@ -19,16 +19,20 @@ public class Cycle {
 	@Column
 	public Integer borrow = 0;
 	
+	@Column 
+	public Integer stock = 0;
 	
 	public Cycle() {
 		super();
 	}
 
 
-	public Cycle(int id, String name) {
+	public Cycle(int id, String name, Integer borrow, Integer stock) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.borrow = borrow;
+		this.stock = stock;
 	}
 
 
@@ -59,6 +63,21 @@ public class Cycle {
 
 	public void setBorrow(Integer borrow) {
 		this.borrow = borrow;
+	}
+
+
+	public Integer getStock() {
+		return stock;
+	}
+
+
+	public void setStock(Integer stock) {
+		this.stock = stock;
+	}
+
+
+	public Integer getBorrow() {
+		return borrow;
 	}
 	
 	

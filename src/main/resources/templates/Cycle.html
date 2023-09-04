@@ -16,25 +16,25 @@
 				<tr>
 					<td>id</td>
 					<td>Cycle</td>
+					<td>Stock</td>
+					<td>Restock</td>
 				</tr>
 			</thead>
 			<tbody th:each="cycle : ${cycles} ">
 				<td th:text="${cycle.id}"></td>
 				<td th:text="${cycle.name}"></td>
+				<td th:text="${cycle.stock}"></td>
 				<td>
-					<a th:href="@{/borrow/{id}(id=${cycle.id})}" th:if="${cycle.borrow == 0}" class="btn btn-primary btn-sm">Borrow</a>
-        			<button th:if="${cycle.borrow == 1}" class="btn btn-primary btn-sm" disabled>Borrowed</button>
+					<a th:href="@{/borrow/{id}(id=${cycle.id})}" th:if="${cycle.stock != 0}" class="btn btn-primary btn-sm">Borrow</a>
+<!--        			<button th:if="${cycle.borrow == 0} th:if="${cycle.borrow == 1}" class="btn btn-primary btn-sm" disabled>Borrowed</button>-->
         			<a th:href="@{/return/{id}(id=${cycle.id})}" th:if="${cycle.borrow == 1}" class="btn btn-danger btn-sm">Return</a>
 				</td>
 			</tbody>
 		</table>
-<!--		<form th:action="@{/add}" th:object="${new_Cycle}" method="post">-->
-<!--				<label for="Name">Enter Cycle Name-->
-<!--				<input type="text" th:field="*{name}"></label>-->
-<!--				<label for="Borrow">Enter 0 if available 1 for taken-->
-<!--				<input type="number" th:field="*{borrow}"></label>-->
-<!--				<input type="submit" value="Add cycle" class="btn btn-primary btn-sm">-->
-<!--			</form>-->
+
+	<div>
+		<a th:href="@{restock}" class="btn btn-info btn-sm">Restock</a>
+	</div>
 	</div>
 </body>
 </html>
